@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Source to Roblox Porting Guide (Windows)</title>
+<style>
+    video {
+        width: 100%; /* or 50%, 75%, etc. */
+        height: auto;
+        display: block;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: 1px solid #444;
+    }
+    code {
+        font-family: Consolas,"courier new";
+        color: crimson;
+        background-color: #f1f1f1;
+        padding: 2px;
+        font-size: 105%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fefefe;
+      color: #333;
+    }
+    h1, h2 {
+      color: #4d6b8a;
+    }
+    ul, ol {
+      margin-left: 20px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .step {
+      margin-bottom: 30px;
+    }
+    .step img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .software {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      color: #121212
+    }
+    strong {
+      color: #757575;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+
+<style>
+  :root {
+    --bg-color: #fefefe;
+    --text-color: #333;
+    --card-bg: #ffffff;
+  }
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .toggle-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid #999;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #444;
+    margin-top: 10px;
+  }
+
+  .section, .step {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  code {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+  }
+</style>
+<script>
+  function toggleMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
+</head>
+<body><button class="toggle-btn" onclick="toggleMode()">🌗 Toggle Dark/Light Mode</button>
+<h1>How I Port</h1>
+<div class="section">
+<h2>📋 Get VMF/Textures/Models of the map from BSP</h2>
+<ul>
+<li class="step">
+<strong>Step 1:</strong> Download BSP of map you want to port.
+      </li>
+<li class="step">
+<strong>Step 2:</strong> Download BSPSource <a href="https://github.com/ata4/bspsrc/releases/" target="_blank"><img alt="View on GitHub" src="https://img.shields.io/badge/View_on-GitHub-181717?logo=github&amp;style=for-the-badge&amp;logoColor=white"/></a>
+</li>
+<li class="step">
+<strong>Step 3:</strong> Add [MAP].bsp
+        <img alt="Step 3 screenshot" height="50%" src="./images/bspsrcdecomp1.png" width="50%"/>
+</li>
+<li class="step">
+<strong>Step 4:</strong> In "<b>Other</b>" tab enable " <b>Extract embedded files</b>"
+        <img alt="Step 4 screenshot" height="50%" src="./images/bspsrcdecomp2.png" width="50%"/>
+</li>
+<li class="step">
+<strong>Step 5:</strong> Decompile
+        <img alt="Step 4 screenshot" height="50%" src="./images/bspsrcdecomp3.png" width="50%"/>
+</li>
+</ul>
+</div>
+<div class="section">
+<h2>📋 Edit VMF in Hammer</h2>
+<ul>
+<li class="step">
+<strong>Step 1:</strong> Download either css, tf2 or gmod
+      </li>
+<li class="step">
+<strong>Step 2:</strong> open VMF file with hammer editor located in <br/><i>C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Source\bin</i>
+<img alt="Step 2 screenshot" height="75%" src="./images/hammer1.png" width="75%"/>
+</li>
+<li class="step">
+<strong>Step 3:</strong> Replace textures that don't render like Trigger/NoDraw/PlayerClip/SkyBox with different textures
+        <video controls muted="True" playsinline="True"><source src="./videos/hammer2.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+<br/>-- VMFImport will not generate Parts with these materials --
+</li>
+<li class="step">
+<strong>Step 4:</strong> If map will have alot of parts you might want to seperate it into stages or segments/chunks
+        <video controls muted="True" playsinline="True"><source src="./videos/hammer3.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</li>
+</ul>
+</div>
+<div class="section">
+<h2>📋 Convert textures to png</h2>
+<ul>
+<li class="step">
+<strong>Step 1:</strong> Download VTFEdit
+        <div style="
+            color: #333;
+            border: 1px solid #444;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f3f3f3;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+            ">
+<strong>External Tool:</strong><br/>
+<a href="https://gamebanana.com/tools/95/" style="color: #2f80ed; text-decoration: none; font-weight: bold;" target="_blank">
+                Crafty Tool on GameBanana
+            </a>– A viewer and converter for Source Engine assets.
+        </div>
+</li>
+<li class="step">
+<strong>Step 2:</strong> Convert Folder.
+        <img alt="Step 2 screenshot" src="./images/vtfedit1.png"/>
+</li>
+<li class="step">
+<strong>Step 3:</strong> Input is the materials folder extracted with the VMF. Output where you are working with these textures.
+        <img alt="Step 3 screenshot" src="./images/vtfedit2.png"/>
+</li>
+</ul>
+</div>
+<div class="section">
+<h2>📋 Convert Models from MDL to SMD</h2>
+<ul>
+<li class="step">
+<strong>Step 1:</strong> Download Crowbar <a href="https://github.com/ZeqMacaw/Crowbar/releases/" target="_blank"><img alt="View on GitHub" src="https://img.shields.io/badge/View_on-GitHub-181717?logo=github&amp;style=for-the-badge&amp;logoColor=white"/></a>
+</li>
+<li class="step">
+<strong>Step 2:</strong> Set Input folder where MDL files extracted are located then set Output where you will access these models. <br/><br/><b>Decompile!</b>
+<img alt="Step 2 screenshot" src="./images/crowbar1.png"/>
+</li>
+</ul>
+</div>
+<div class="section">
+<h2>📋 Convert Models from SMD to OBJ</h2>
+<ul>
+<li class="step">
+<strong>Step 1:</strong> Download Blender
+        <div style="
+            color: #333;
+            border: 1px solid #f5792a;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff5ee;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+            ">
+<strong>Blender 3D Software:</strong><br/>
+<a href="https://www.blender.org/download/" style="color: #f5792a; text-decoration: none; font-weight: bold;" target="_blank">
+                Download Blender for Free
+            </a> – Open source 3D modeling and animation tool.
+        </div>
+</li>
+<li class="step">
+<strong>Step 2:</strong> Download Blender Add-On
+        <div style="
+            color: #333;
+            border: 1px solid #1e90ff;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #e6f2ff;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+            ">
+<strong>Blender Source Tools:</strong><br/>
+<a href="https://steamcommunity.com/groups/BlenderSourceTools" style="color: #1e90ff; text-decoration: none; font-weight: bold;" target="_blank">
+                View on steamcommunity.com
+            </a> – Tools to import/export Source Engine models in Blender.
+        </div>
+</li>
+<li class="step">
+<strong>Step 3:</strong> Add Blender Add-On
+        <video controls muted="True" playsinline="True"><source src="./videos/blender1.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</li>
+<li class="step">
+<strong>Step 4:</strong> Import SMD, seperate by material then export <b>selection</b> as OBJ at <b>0.1 scale</b>.
+        <video controls muted="True" playsinline="True"><source src="./videos/blender2.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</li>
+</ul>
+</div>
+<div class="section">
+<h1>Tip: Usual stud increments go up like 0.1 ,0.2, 0.4, 0.8, 1.6, 3.2</h1>
+<h2>📋 Import to Roblox</h2>
+<ol>
+<li> <b>VMF Import.</b>
+<ul>
+<br/>
+<li class="step">
+<strong>Step 1:</strong> Download Roblox Studio
+</li>
+<li class="step">
+<strong>Step 2:</strong> Add VMF Importer [Beta] Plugin
+                    <div style="
+                        border: 1px solid #ff6b81;
+                        padding: 15px;
+                        border-radius: 8px;
+                        background-color: #fff0f0;
+                        margin: 20px 0;
+                        font-family: Arial, sans-serif;
+                        ">
+<a href="https://create.roblox.com/store/asset/1132465394/VMF-Importer-Beta" style="color: #d63031; text-decoration: none; font-weight: bold;" target="_blank">
+<img height="10%" src="https://tr.rbxcdn.com/180DAY-6ba89ebbf8612fa8b64a23cd8c91bae9/420/420/Image/Webp/noFilter" width="10%"/><br/> VMF Importer [Beta] – View on Roblox Plugin Store
+                        </a>
+</div>
+</li>
+<li class="step">
+<strong>Step 3:</strong> Bulk Import Images
+                    <img alt="Step 3 screenshot" src="./images/robloxstudio1.jpg"/>
+</li>
+<li class="step">
+<strong>Step 4:</strong> Save VMF with only 1 area active in VisGroups
+                    <img alt="Step 4 screenshot" src="./images/robloxstudio2.png"/>
+</li>
+<li class="step">
+<strong>Step 5:</strong> Use Import VMF [BETA]
+                    <img alt="Step 5 screenshot" src="./images/robloxstudio3.jpg"/>
+</li>
+<li class="step">
+<strong>Step 6:</strong> Once Imported you will need to replace Unions with Parts for accurate collisions.
+<br>select all triggers by searching in studio explorer for "tag:hazardstrip001a" or whatever material you replaced triggers with then group together.
+                    <img alt="Step 6 screenshot" src="./images/robloxstudio4.jpg"/>
+</li>
+</ul>
+</li>
+<li> <b>OBJ Import.</b>
+<ul>
+<br/>
+<li class="step">
+<strong>Step 1:</strong> Import OBJ. Group meshes and name after errored meshes that were imported.
+                    <video controls muted="True" playsinline="True"><source src="./videos/robloxstudioobj1.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</li>
+<li class="step">
+<strong>Step 2:</strong> Attach SurfaceAppearance to models with materials. use .mtl files to find texture to use.
+                    <video controls muted="True" playsinline="True"><source src="./videos/robloxstudioobj2.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
+</li>
+<li class="step">
+<strong>Step 3:</strong> Simple Script to place Primary Part at world center for imported model.
+                    <br/>Replace "<b>workspace["props_not_ready"]["Missing: cyberwave/arch_01"]</b>" with your imported model.
+                    <p>
+<code>
+                            local model=workspace["props_not_ready"]["Missing: cyberwave/arch_01"] --[[ Model Goes Here --]]<br/>
+                            local PrimPart=Instance.new("Part")<br/>
+                            PrimPart.Parent=model<br/>
+                            PrimPart.Transparency=1<br/>
+                            PrimPart.CanCollide=false<br/>
+                            PrimPart.Anchored=true<br/>
+                            PrimPart.Name="PrimaryPart"<br/>
+                            PrimPart.Position=Vector3.new(0,0,0)<br/>
+                            PrimPart.Size=Vector3.new(3.2,3.2,3.2)<br/>
+                            model.PrimaryPart=PrimPart
+                        </code>
+</p>
+</li>
+<li class="step">
+<strong>Step 4:</strong> If the model requires Collision I duplicate the Primary Part. Delete duplicate meshes, Group it with name Collisions then move and resize to the shape of the model.
+                </li>
+<li class="step">
+<strong>Step 5:</strong> Place entities in a folder named "work" at "<b>workspace.work</b>" Replace "<b>workspace["props_ready"]</b>" with location of ready props to replace error meshes
+                    <p>
+<code>
+                            local workDir=workspace.work<br/>
+                            local propDir=workspace["props_ready"]<br/>
+<br/>
+                            for i, v in ipairs(workDir:GetDescendants()) do<br/>
+                                if v:IsA'MeshPart' and v.Name=='error' then<br/>
+                                    crntMesh=v.MissingGui.MissingLbl.Text<br/>
+                                    print(crntMesh)<br/>
+<br/>
+                                    if propDir:FindFirstChild(crntMesh,true)~=nil and propDir:FindFirstChild(crntMesh,true):IsA("Model") then<br/>
+                                        print(crntMesh)<br/>
+                                        crntProp=propDir:FindFirstChild(crntMesh,true)<br/>
+<br/>
+                                        crntClone=crntProp:Clone()<br/>
+<br/>
+                                        crntClone:PivotTo(v.CFrame)<br/>
+                                        crntClone.Parent=v.Parent<br/>
+                                        
+                                        v:Destroy()
+                                    end
+                                end
+                            end
+                        </code>
+</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</body>
+</html>
