@@ -320,16 +320,16 @@ Select all triggers by searching in Studio Explorer for "tag:hazardstrip001a" (o
 Replace "<b>workspace["props_not_ready"]["Missing: cyberwave/arch_01"]</b>" with your imported model.
                     <p>
 <code>
-local model=workspace["props_not_ready"]["Missing: cyberwave/arch_01"] --[[ Model Goes Here --]]
-local PrimPart=Instance.new("Part")
-PrimPart.Parent=model
-PrimPart.Transparency=1
-PrimPart.CanCollide=false
-PrimPart.Anchored=true
-PrimPart.Name="PrimaryPart"
-PrimPart.Position=Vector3.new(0,0,0)
-PrimPart.Size=Vector3.new(3.2,3.2,3.2)
-model.PrimaryPart=PrimPart
+<br>local model=workspace["props_not_ready"]["Missing: cyberwave/arch_01"] --[[ Model Goes Here --]]
+<br>local PrimPart=Instance.new("Part")
+<br>PrimPart.Parent=model
+<br>PrimPart.Transparency=1
+<br>PrimPart.CanCollide=false
+<br>PrimPart.Anchored=true
+<br>PrimPart.Name="PrimaryPart"
+<br>PrimPart.Position=Vector3.new(0,0,0)
+<br>PrimPart.Size=Vector3.new(3.2,3.2,3.2)
+<br>model.PrimaryPart=PrimPart
 </code>
 </p>
 </li>
@@ -340,27 +340,27 @@ model.PrimaryPart=PrimPart
 <strong>Step 5:</strong> Place entities in a folder named "work" at "<b>workspace.work</b>". Replace "<b>workspace["props_ready"]</b>" with the location of your ready props to replace error meshes.
                     <p>
 <code>
-local workDir=workspace.work
-local propDir=workspace["props_ready"]
-
-for i, v in ipairs(workDir:GetDescendants()) do
-    if v:IsA'MeshPart' and v.Name=='error' then
-        crntMesh=v.MissingGui.MissingLbl.Text
-        print(crntMesh)
-
-        if propDir:FindFirstChild(crntMesh,true)~=nil and propDir:FindFirstChild(crntMesh,true):IsA("Model") then
-            print(crntMesh)
-            crntProp=propDir:FindFirstChild(crntMesh,true)
-
-            crntClone=crntProp:Clone()
-
-            crntClone:PivotTo(v.CFrame)
-            crntClone.Parent=v.Parent
-            
-            v:Destroy()
-        end
-    end
-end
+<br>local workDir=workspace.work
+<br>local propDir=workspace["props_ready"]
+<br>
+<br>for i, v in ipairs(workDir:GetDescendants()) do
+<br>    if v:IsA'MeshPart' and v.Name=='error' then
+<br>        crntMesh=v.MissingGui.MissingLbl.Text
+<br>        print(crntMesh)
+<br>
+<br>        if propDir:FindFirstChild(crntMesh,true)~=nil and propDir:FindFirstChild(crntMesh,true):IsA("Model") then
+<br>            print(crntMesh)
+<br>            crntProp=propDir:FindFirstChild(crntMesh,true)
+<br>
+<br>            crntClone=crntProp:Clone()
+<br>
+<br>            crntClone:PivotTo(v.CFrame)
+<br>            crntClone.Parent=v.Parent
+<br>            
+<br>            v:Destroy()
+<br>        end
+<br>    end
+<br>end
 </code>
 </p>
 </li>
