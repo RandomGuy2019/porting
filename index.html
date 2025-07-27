@@ -128,51 +128,51 @@
 <body><button class="toggle-btn" onclick="toggleMode()">🌗 Toggle Dark/Light Mode</button>
 <h1>How I Port</h1>
 <div class="section">
-<h2>📋 Get VMF/Textures/Models of the map from BSP</h2>
+<h2>📋 Extract VMF, Textures, and Models from BSP</h2>
 <ul>
 <li class="step">
-<strong>Step 1:</strong> Download BSP of map you want to port.
+<strong>Step 1:</strong> Download the BSP file of the map you want to port.
       </li>
 <li class="step">
 <strong>Step 2:</strong> Download BSPSource <a href="https://github.com/ata4/bspsrc/releases/" target="_blank"><img alt="View on GitHub" src="https://img.shields.io/badge/View_on-GitHub-181717?logo=github&amp;style=for-the-badge&amp;logoColor=white"/></a>
 </li>
 <li class="step">
-<strong>Step 3:</strong> Add [MAP].bsp
+<strong>Step 3:</strong> Add your [MAP].bsp file to BSPSource.
         <img alt="Step 3 screenshot" height="50%" src="./images/bspsrcdecomp1.png" width="50%"/>
 </li>
 <li class="step">
-<strong>Step 4:</strong> In "<b>Other</b>" tab enable " <b>Extract embedded files</b>"
+<strong>Step 4:</strong> In the "<b>Other</b>" tab, enable "<b>Extract embedded files</b>".
         <img alt="Step 4 screenshot" height="50%" src="./images/bspsrcdecomp2.png" width="50%"/>
 </li>
 <li class="step">
-<strong>Step 5:</strong> Decompile
+<strong>Step 5:</strong> Click "Decompile".
         <img alt="Step 4 screenshot" height="50%" src="./images/bspsrcdecomp3.png" width="50%"/>
 </li>
 </ul>
 </div>
 <div class="section">
-<h2>📋 Edit VMF in Hammer</h2>
+<h2>📋 Edit the VMF in Hammer</h2>
 <ul>
 <li class="step">
-<strong>Step 1:</strong> Download either css, tf2 or gmod
+<strong>Step 1:</strong> Download Counter-Strike: Source, Team Fortress 2, or Garry's Mod.
       </li>
 <li class="step">
-<strong>Step 2:</strong> open VMF file with hammer editor located in <br/><i>C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Source\bin</i>
+<strong>Step 2:</strong> Open the VMF file with Hammer Editor, located at <br/><i>C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Source\bin</i>
 <img alt="Step 2 screenshot" height="75%" src="./images/hammer1.png" width="75%"/>
 </li>
 <li class="step">
-<strong>Step 3:</strong> Replace textures that don't render like Trigger/NoDraw/PlayerClip/SkyBox with different textures
+<strong>Step 3:</strong> Replace any non-rendering textures (like Trigger, NoDraw, PlayerClip, SkyBox) with visible textures.
         <video controls muted="True" playsinline="True"><source src="./videos/hammer2.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
-<br/>-- VMFImport will not generate Parts with these materials --
+<br/>-- VMFImport will not generate Parts for these materials --
 </li>
 <li class="step">
-<strong>Step 4:</strong> If map will have alot of parts you might want to seperate it into stages or segments/chunks
+<strong>Step 4:</strong> If your map has many parts, consider splitting it into stages, segments, or chunks.
         <video controls muted="True" playsinline="True"><source src="./videos/hammer3.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
 </li>
 </ul>
 </div>
 <div class="section">
-<h2>📋 Convert textures to png</h2>
+<h2>📋 Convert Textures to PNG</h2>
 <ul>
 <li class="step">
 <strong>Step 1:</strong> Download VTFEdit
@@ -192,11 +192,11 @@
         </div>
 </li>
 <li class="step">
-<strong>Step 2:</strong> Convert Folder.
+<strong>Step 2:</strong> Use the "Convert Folder" option.
         <img alt="Step 2 screenshot" src="./images/vtfedit1.png"/>
 </li>
 <li class="step">
-<strong>Step 3:</strong> Input is the materials folder extracted with the VMF. Output where you are working with these textures.
+<strong>Step 3:</strong> Set the input to the materials folder you extracted from the VMF. Set the output to your working directory for these textures.
         <img alt="Step 3 screenshot" src="./images/vtfedit2.png"/>
 </li>
 </ul>
@@ -208,7 +208,7 @@
 <strong>Step 1:</strong> Download Crowbar <a href="https://github.com/ZeqMacaw/Crowbar/releases/" target="_blank"><img alt="View on GitHub" src="https://img.shields.io/badge/View_on-GitHub-181717?logo=github&amp;style=for-the-badge&amp;logoColor=white"/></a>
 </li>
 <li class="step">
-<strong>Step 2:</strong> Set Input folder where MDL files extracted are located then set Output where you will access these models. <br/><br/><b>Decompile!</b>
+<strong>Step 2:</strong> Set the input folder to where your extracted MDL files are located, and set the output folder for the decompiled models. <br/><br/><b>Click "Decompile".</b>
 <img alt="Step 2 screenshot" src="./images/crowbar1.png"/>
 </li>
 </ul>
@@ -234,7 +234,7 @@
         </div>
 </li>
 <li class="step">
-<strong>Step 2:</strong> Download Blender Add-On
+<strong>Step 2:</strong> Download the Blender Source Tools add-on
         <div style="
             color: #333;
             border: 1px solid #1e90ff;
@@ -251,27 +251,27 @@
         </div>
 </li>
 <li class="step">
-<strong>Step 3:</strong> Add Blender Add-On
+<strong>Step 3:</strong> Install the Blender add-on.
         <video controls muted="True" playsinline="True"><source src="./videos/blender1.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
 </li>
 <li class="step">
-<strong>Step 4:</strong> Import SMD, seperate by material then export <b>selection</b> as OBJ at <b>0.1 scale</b>.
+<strong>Step 4:</strong> Import the SMD file, separate by material, then export the <b>selection</b> as OBJ at <b>0.1 scale</b>.
         <video controls muted="True" playsinline="True"><source src="./videos/blender2.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
 </li>
 </ul>
 </div>
 <div class="section">
-<h1>Tip: Usual stud increments go up like 0.1 ,0.2, 0.4, 0.8, 1.6, 3.2</h1>
+<h1>Tip: Common stud increments are 0.1, 0.2, 0.4, 0.8, 1.6, 3.2</h1>
 <h2>📋 Import to Roblox</h2>
 <ol>
-<li> <b>VMF Import.</b>
+<li> <b>VMF Import</b>
 <ul>
 <br/>
 <li class="step">
 <strong>Step 1:</strong> Download Roblox Studio
 </li>
 <li class="step">
-<strong>Step 2:</strong> Add VMF Importer [Beta] Plugin
+<strong>Step 2:</strong> Add the VMF Importer [Beta] plugin
                     <div style="
                         border: 1px solid #ff6b81;
                         padding: 15px;
@@ -286,82 +286,82 @@
 </div>
 </li>
 <li class="step">
-<strong>Step 3:</strong> Bulk Import Images
+<strong>Step 3:</strong> Bulk import your images.
                     <img alt="Step 3 screenshot" src="./images/robloxstudio1.jpg"/>
 </li>
 <li class="step">
-<strong>Step 4:</strong> Save VMF with only 1 area active in VisGroups
+<strong>Step 4:</strong> Save the VMF with only one area active in VisGroups.
                     <img alt="Step 4 screenshot" src="./images/robloxstudio2.png"/>
 </li>
 <li class="step">
-<strong>Step 5:</strong> Use Import VMF [BETA]
+<strong>Step 5:</strong> Use the Import VMF [BETA] tool.
                     <img alt="Step 5 screenshot" src="./images/robloxstudio3.jpg"/>
 </li>
 <li class="step">
-<strong>Step 6:</strong> Once Imported you will need to replace Unions with Parts for accurate collisions.
-<br>select all triggers by searching in studio explorer for "tag:hazardstrip001a" or whatever material you replaced triggers with then group together.
+<strong>Step 6:</strong> After importing, replace Unions with Parts for accurate collisions.<br>
+Select all triggers by searching in Studio Explorer for "tag:hazardstrip001a" (or whatever material you used for triggers), then group them together.
                     <img alt="Step 6 screenshot" src="./images/robloxstudio4.jpg"/>
 </li>
 </ul>
 </li>
-<li> <b>OBJ Import.</b>
+<li> <b>OBJ Import</b>
 <ul>
 <br/>
 <li class="step">
-<strong>Step 1:</strong> Import OBJ. Group meshes and name after errored meshes that were imported.
+<strong>Step 1:</strong> Import the OBJ file. Group meshes and name them after any errored meshes that were imported.
                     <video controls muted="True" playsinline="True"><source src="./videos/robloxstudioobj1.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
 </li>
 <li class="step">
-<strong>Step 2:</strong> Attach SurfaceAppearance to models with materials. use .mtl files to find texture to use.
+<strong>Step 2:</strong> Attach SurfaceAppearance to models with materials. Use the .mtl files to find the correct textures.
                     <video controls muted="True" playsinline="True"><source src="./videos/robloxstudioobj2.mp4" type="video/mp4"/>Your browser does not support the video tag.</video>
 </li>
 <li class="step">
-<strong>Step 3:</strong> Simple Script to place Primary Part at world center for imported model.
-                    <br/>Replace "<b>workspace["props_not_ready"]["Missing: cyberwave/arch_01"]</b>" with your imported model.
+<strong>Step 3:</strong> Use this script to place the Primary Part at the world center for your imported model.<br>
+Replace "<b>workspace["props_not_ready"]["Missing: cyberwave/arch_01"]</b>" with your imported model.
                     <p>
 <code>
-                            local model=workspace["props_not_ready"]["Missing: cyberwave/arch_01"] --[[ Model Goes Here --]]<br/>
-                            local PrimPart=Instance.new("Part")<br/>
-                            PrimPart.Parent=model<br/>
-                            PrimPart.Transparency=1<br/>
-                            PrimPart.CanCollide=false<br/>
-                            PrimPart.Anchored=true<br/>
-                            PrimPart.Name="PrimaryPart"<br/>
-                            PrimPart.Position=Vector3.new(0,0,0)<br/>
-                            PrimPart.Size=Vector3.new(3.2,3.2,3.2)<br/>
-                            model.PrimaryPart=PrimPart
-                        </code>
+local model=workspace["props_not_ready"]["Missing: cyberwave/arch_01"] --[[ Model Goes Here --]]
+local PrimPart=Instance.new("Part")
+PrimPart.Parent=model
+PrimPart.Transparency=1
+PrimPart.CanCollide=false
+PrimPart.Anchored=true
+PrimPart.Name="PrimaryPart"
+PrimPart.Position=Vector3.new(0,0,0)
+PrimPart.Size=Vector3.new(3.2,3.2,3.2)
+model.PrimaryPart=PrimPart
+</code>
 </p>
 </li>
 <li class="step">
-<strong>Step 4:</strong> If the model requires Collision I duplicate the Primary Part. Delete duplicate meshes, Group it with name Collisions then move and resize to the shape of the model.
+<strong>Step 4:</strong> If the model needs collision, duplicate the Primary Part. Delete duplicate meshes, group it as "Collisions", then move and resize it to fit the model.
                 </li>
 <li class="step">
-<strong>Step 5:</strong> Place entities in a folder named "work" at "<b>workspace.work</b>" Replace "<b>workspace["props_ready"]</b>" with location of ready props to replace error meshes
+<strong>Step 5:</strong> Place entities in a folder named "work" at "<b>workspace.work</b>". Replace "<b>workspace["props_ready"]</b>" with the location of your ready props to replace error meshes.
                     <p>
 <code>
-                            local workDir=workspace.work<br/>
-                            local propDir=workspace["props_ready"]<br/>
-<br/>
-                            for i, v in ipairs(workDir:GetDescendants()) do<br/>
-                                if v:IsA'MeshPart' and v.Name=='error' then<br/>
-                                    crntMesh=v.MissingGui.MissingLbl.Text<br/>
-                                    print(crntMesh)<br/>
-<br/>
-                                    if propDir:FindFirstChild(crntMesh,true)~=nil and propDir:FindFirstChild(crntMesh,true):IsA("Model") then<br/>
-                                        print(crntMesh)<br/>
-                                        crntProp=propDir:FindFirstChild(crntMesh,true)<br/>
-<br/>
-                                        crntClone=crntProp:Clone()<br/>
-<br/>
-                                        crntClone:PivotTo(v.CFrame)<br/>
-                                        crntClone.Parent=v.Parent<br/>
-                                        
-                                        v:Destroy()
-                                    end
-                                end
-                            end
-                        </code>
+local workDir=workspace.work
+local propDir=workspace["props_ready"]
+
+for i, v in ipairs(workDir:GetDescendants()) do
+    if v:IsA'MeshPart' and v.Name=='error' then
+        crntMesh=v.MissingGui.MissingLbl.Text
+        print(crntMesh)
+
+        if propDir:FindFirstChild(crntMesh,true)~=nil and propDir:FindFirstChild(crntMesh,true):IsA("Model") then
+            print(crntMesh)
+            crntProp=propDir:FindFirstChild(crntMesh,true)
+
+            crntClone=crntProp:Clone()
+
+            crntClone:PivotTo(v.CFrame)
+            crntClone.Parent=v.Parent
+            
+            v:Destroy()
+        end
+    end
+end
+</code>
 </p>
 </li>
 </ul>
